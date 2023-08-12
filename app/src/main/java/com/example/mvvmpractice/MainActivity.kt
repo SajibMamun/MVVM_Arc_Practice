@@ -18,15 +18,16 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
-
+        //observer will observe viewmodel
+        viewModel.counterMutableLiveData.observe(this) {
+            binding.resulttvid.text = "$it"
+        }
 
 
 
         binding.incrementbtnid.setOnClickListener {
 
             viewModel.incremeantvalue()
-
-            binding.resulttvid.text = "${viewModel.value}"
 
 
         }

@@ -1,12 +1,21 @@
 package com.example.mvvmpractice
 
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class CounterViewModel:ViewModel() {
+class CounterViewModel : ViewModel() {
 
-    var value:Int=0
+    private var value: Int = 0
 
-    fun incremeantvalue(){
+
+    //create mutable live data object
+    var counterMutableLiveData = MutableLiveData<Int>()
+
+
+    fun incremeantvalue() {
         value++
+
+        //updatelivedata value
+        counterMutableLiveData.postValue(value)
     }
 }
